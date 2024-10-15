@@ -1,0 +1,23 @@
+{
+  "name": "alice-zou-capstone-fire-fish-game-api",
+  "version": "1.0.0",
+  "description": "It is the fire fish game backend, a letter and keyboard learning game for toddlers. The higher level of the game helps improve kids creativity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "letter",
+    "and",
+    "keyboard",
+    "recoganition",
+    "game",
+    "improve",
+    "creativitiy",
+    "game",
+    "for",
+    "toddler"
+  ],
+  "author": "Alice Zou",
+  "license": "ISC"
+}
