@@ -30,22 +30,4 @@ export const seed = async (knex) => {
     { user_id: userIds[0], score: 100 },
     { user_id: userIds[1], score: 80 },
   ]);
-
-  await knex("default_sentences").insert([
-    { sentence: "The shark swims fast.", animal_id: 1 },
-    { sentence: "The lion roars loud.", animal_id: 2 },
-  ]);
-
-  await knex("multi_category_sentences").insert([
-    {
-      sentence: "A lion and eagle are friends.",
-      category_animal_paris: JSON.stringify([
-        { category: "Wild", animal: "Lion" },
-        {
-          category: "Birds",
-          animal: "Eagle",
-        },
-      ]),
-    },
-  ]);
 };
