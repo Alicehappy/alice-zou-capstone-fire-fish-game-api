@@ -6,20 +6,21 @@ export const seed = async (knex) => {
 
   const categoryIds = await knex("categories")
     .insert([
-      { name: "Underwater" },
-      { name: "Wild" },
-      { name: "Birds" },
-      { name: "Insects" },
-      { name: "Farm" },
+      { name: "underwater" },
+      { name: "wild" },
+      { name: "birds" },
+      { name: "insects" },
+      { name: "farm" },
     ])
     .returning("id");
 
   await knex("animals").insert([
-    { name: "Shark", category_id: categoryIds[0] },
-    { name: "Lion", category_id: categoryIds[1] },
-    { name: "Eagle", category_id: categoryIds[2] },
-    { name: "Bee", category_id: categoryIds[3] },
-    { name: "Cow", category_id: categoryIds[4] },
+    { name: "dolphin", category_id: categoryIds[0] },
+    { name: "lion", category_id: categoryIds[1] },
+    { name: "eagle", category_id: categoryIds[2] },
+    { name: "bee", category_id: categoryIds[3] },
+    { name: "cow", category_id: categoryIds[4] },
+    { name: "shark", category_id: categoryIds[0] },
   ]);
 
   const userIds = await knex("users")
