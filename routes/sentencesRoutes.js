@@ -2,7 +2,7 @@ import express from "express";
 import {
   getSentences,
   saveSentence,
-} from "../controllers/sentenceController.js";
+} from "../controllers/sentencesController.js";
 
 const router = express.Router();
 

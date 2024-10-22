@@ -13,8 +13,7 @@ app.use(express.json());
 
 app.use("/api/scoreboard", scoreboardRoutes);
 app.use("/api/categories", categoriesRoutes);
-app.use("/api/default-sentences", sentencesRoutes);
-app.use("/api/custom-sentences", sentencesRoutes);
+app.use("/api/sentences", sentencesRoutes);
 
 app.get("/", (_req, res) => {
   res.send("Firefish backend is running!");

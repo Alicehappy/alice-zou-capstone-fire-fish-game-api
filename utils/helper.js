@@ -13,7 +13,7 @@ export const getTableName = (categoryCount) => {
     3: "three_category_sentences",
   };
 
-  return tableMap(categoryCount);
+  return tableMap[categoryCount];
 };
 
 export const numberToWord = (num) => {

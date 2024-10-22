@@ -3,8 +3,9 @@ import knex from "../config/knex.js";
 export const getTopScores = async (req, res) => {
   try {
     const scores = await knex("scores")
-      .select("id", "user_name", "score")
-      .orderBy("score", "desc")
+      .select("scores.id", "users.name as user_name", "scores.score")
+      .join("users", "scores.user_id", "users.id")
+      .orderBy("scores.score", "desc")
       .limit(10);
     res.status(200).json(scores);
   } catch (error) {

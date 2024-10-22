@@ -2,13 +2,21 @@ import knex from "../config/knex.js";
 import { mapAnimals, getTableName } from "../utils/helper.js";
 
 export const getSentences = async (req, res) => {
-  const { categoryCount, type, animals } = req.query;
+  const { type, animals } = req.query;
+  const { categoryCount } = req.params;
 
   try {
-    const table = getTableName(categoryCount);
+    const table = getTableName(Number(categoryCount));
+
+    if (!table) {
+      return res.status(400).json({ error: "Invalid category count" });
+    }
+
+    const animalsArray = Array.isArray(animals) ? animals : animals.split(",");
+    
     const sentences = await knex(table).where({
       sentence_type: type,
-      ...mapAnimals(animals),
+      ...mapAnimals(animalsArray),
     });
 
     res.json(sentences);
