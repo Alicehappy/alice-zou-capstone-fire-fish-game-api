@@ -3,7 +3,12 @@ export const up = async (knex) => {
     table.increments("id").primary();
     table.enu("sentence_type", ["default", "custom"]).notNullable();
     table.text("sentence").notNullable();
-    table.integer("animal_one_id").unsigned().references("id").inTable("animals");
+    table
+      .integer("animal_one_id")
+      .unsigned()
+      .references("id")
+      .inTable("animals")
+      .onDelete("CASCADE");
   });
 
   await knex.schema.createTable("two_category_sentences", (table) => {
@@ -14,12 +19,14 @@ export const up = async (knex) => {
       .integer("animal_one_id")
       .unsigned()
       .references("id")
-      .inTable("animals");
+      .inTable("animals")
+      .onDelete("CASCADE");
     table
       .integer("animal_two_id")
       .unsigned()
       .references("id")
-      .inTable("animals");
+      .inTable("animals")
+      .onDelete("CASCADE");
   });
 
   await knex.schema.createTable("three_category_sentences", (table) => {
@@ -30,17 +37,20 @@ export const up = async (knex) => {
       .integer("animal_one_id")
       .unsigned()
       .references("id")
-      .inTable("animals");
+      .inTable("animals")
+      .onDelete("CASCADE");
     table
       .integer("animal_two_id")
       .unsigned()
       .references("id")
-      .inTable("animals");
+      .inTable("animals")
+      .onDelete("CASCADE");
     table
       .integer("animal_three_id")
       .unsigned()
       .references("id")
-      .inTable("animals");
+      .inTable("animals")
+      .onDelete("CASCADE");
   });
 };
 
