@@ -1,4 +1,4 @@
-import knex from "../knexfile.js";
+import knex from "../config/knex.js";
 
 export const getTopScores = async (req, res) => {
   try {

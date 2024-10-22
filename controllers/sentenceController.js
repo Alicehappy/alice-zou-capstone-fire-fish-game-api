@@ -1,4 +1,4 @@
-import knex from "../knexfile.js";
+import knex from "../config/knex.js";
 import { mapAnimals, getTableName } from "../utils/helper.js";
 
 export const getSentences = async (req, res) => {
