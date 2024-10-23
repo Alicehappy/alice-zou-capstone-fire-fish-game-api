@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../group-6-instock-api"
+		},
+		{
+			"path": "../group-6-instock"
 		}
 	],
 	"settings": {}

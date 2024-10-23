@@ -16,7 +16,16 @@ export const getTopScores = async (req, res) => {
 export const saveScore = async (req, res) => {
   const { user_name, score } = req.body;
   try {
-    await knex("scores").insert({ user_name, score });
+    let user = await knex("users").where({ name: user_name }).first();
+
+    if (!user) {
+      const [userId] = await knex("users")
+        .insert({ name: user_name })
+        .returning("id");
+      user = { id: userId };
+    }
+
+    await knex("scores").insert({ user_id: user.id, score });
     res.status(201).json({ message: "Score saved successfully!" });
   } catch (error) {
     res.status(500).json({ message: "Failed to save score.", error });
