@@ -5,6 +5,7 @@ import scoreboardRoutes from "./routes/scoreboardRoutes.js";
 import categoriesRoutes from "./routes/categoriesRoutes.js";
 import sentencesRoutes from "./routes/sentencesRoutes.js";
 import randomAnimalRoutes from "./routes/animalsRoutes.js";
+import funFactsRoutes from "./routes/funFactsRoutes.js";
 
 const app = express();
 const { PORT, BACKEND_URL } = process.env;
@@ -16,6 +17,7 @@ app.use("/api/scoreboard", scoreboardRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/sentences", sentencesRoutes);
 app.use("/api/random-animal", randomAnimalRoutes);
+app.use("/api/fun-facts", funFactsRoutes);
 
 app.get("/", (_req, res) => {
   res.send("Firefish backend is running!");
