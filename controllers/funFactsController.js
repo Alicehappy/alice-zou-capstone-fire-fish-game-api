@@ -4,7 +4,7 @@ export const getFunFactByAnimalId = async (req, res) => {
   const { animalId } = req.params;
 
   try {
-    const funFact = await knex("fun_facts").where({ animal_id: animalId }).first();
+    const funFact = await knex("fun_facts").where({ animal_id: animalId });
     if (funFact) {
       res.status(200).json(funFact);
     } else {
