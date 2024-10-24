@@ -8,7 +8,7 @@ export const getCategoriesWithAnimals = async (req, res) => {
       categories.map(async (category) => {
         const animals = await knex("animals")
           .where("category_id", category.id)
-          .select("id", "name");
+          .select("id", "name", "image_url");
 
         return {
           id: category.id,
