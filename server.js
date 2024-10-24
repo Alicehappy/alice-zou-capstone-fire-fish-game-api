@@ -7,7 +7,7 @@ import sentencesRoutes from "./routes/sentencesRoutes.js";
 import randomAnimalRoutes from "./routes/animalsRoutes.js";
 import funFactsRoutes from "./routes/funFactsRoutes.js";
 import storiesRoutes from "./routes/storiesRoutes.js";
-import userRoutes from "./routes/userRoutes";
+import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 const { PORT, BACKEND_URL } = process.env;
