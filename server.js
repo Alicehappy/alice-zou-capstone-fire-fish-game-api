@@ -12,6 +12,7 @@ const { PORT, BACKEND_URL } = process.env;
 
 app.use(cors());
 app.use(express.json());
+app.use("/images", express.static("public/images"));
 
 app.use("/api/scoreboard", scoreboardRoutes);
 app.use("/api/categories", categoriesRoutes);
