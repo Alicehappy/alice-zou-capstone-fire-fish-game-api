@@ -1,3 +1,32 @@
+## Run the project
+
+Environment variables:
+
+PORT=8080 BACKEND_URL=http://localhost DB_LOCAL_DBNAME=******** DB_LOCAL_USER=******** DB_LOCAL_PASSWORD=*********
+
+These could be find in the .env.sample file.
+
+After download the repositoy, change .env.sample to .env file,
+
+and replace the DB_LOCAL_DBNAME, DB_LOCAL_USER, and DB_LOCAL_PASSWORD
+
+with the correct value. If you do not know, connect with your team to
+
+get these information.
+
+Installation instructions: Step-by-step instructions for setting up
+
+the project locally
+
+npm install, npm run dev
+
+How to run the app: create instock database first for the project, and then run
+
+npx knex migrate:latest
+
+npx knex seed:run
+
+
 # Project Title
 **Fire Fish Game**
 
@@ -59,11 +88,9 @@ The app is targeted at toddlers and young kids 24 months - 4 years, especially t
   
 ### APIs
 
-    •A backend API to handle score submissions 
-    •APIs to handle generate default sentence for one, two and three animals in three categories
-    •APIs to save the customized text input for one, two and three animals
-    •APIs to save the customized text input for one, two and three animals
-    •APIs to retrieve the list of customized text input for one, two and three animals
+    •Backend APIs to handle score submission, and top scores retrieval
+    •A backend API to handle save user 
+    •APIs to handle save story and retrieve a list of stroies 
 
 
 ### Sitemap
@@ -84,42 +111,18 @@ The app is targeted at toddlers and young kids 24 months - 4 years, especially t
     •users: id, name, score
     •scores: id, user_id, score
     •animals: id, name, category, image
-
-    •one_category_default_sentence: id, category_id, default_sentence (category_id is foreign key in one_category_default)
-    •one_category_default: id, name_category_one, default_sentence
-
-    •two_category_default_sentence: id, category_id, default_sentence (category_id is foreign key in two_category_default)
-    •two_category_default: id, name_category_one, name_category_two
-
-    •three_category_default_sentence: id, category_id, default_sentence (category_id is foreign key in three_category_default)
-    •three_category_default: id, name_category_one, name_category_two, name_category_three
-
-    •one_category_customized_sentence: id, category_id, customized_sentence (category_id is foreign key in one_category_customized)
-    •one_category_customized: id, name, customized_sentence
-
-    •two_category_customized_sentence: id, category_id, customized_sentence (category_id is foreign key in two_category_customized)
-    •two_category_customized: id, name_category_one, name_category_two
-
-    •three_category_customized_sentence: id, category_id, customized_sentence (category_id is foreign key in three_category_customized)
-    •three_category_customized: id, name_category_one, name_category_two, name_category_three (category_id is foreign key in three_category_customized)
-
+    •stories: id, story_text, user_id
     •Data points will relate to users, scores for the typing game, and animal categories for the animal selection game.
 
-### Endpoints
+### Sample of Endpoints
 
     1. POST /api/score: Submit the user’s score.
      •Request Body: { name: "userName", score: 100 }
      •Response: { success: true, message: "Score saved!" }
     2. GET /api/scoreboard: Fetch the top scores.
      •Response: [{ name: "userName", score: 100 }, ...]
-    3. POST /api/generate-sentence: Send selected animals to generate a sentence.
-     •Request Body: { animals: ["Dolphin", "Lion", "Parrot"] }
-     •Response: { sentence: "The dolphin, lion, and parrot went on an adventure." }
-     4.	POST /api/save-sentence: Allows users to save a customized sentence based on their animal selection.
-     •Request Body: { "sentence": "My custom sentence with animals", "animals": ["Dolphin", "Lion"] }
-     •Response: { "success": true, "message": "Sentence saved!" }
-     
-     Note: for 3 and 4 is just an example, will have similar ones to generate default and customized sentence based on different categories that are chosen.
+    3. POST /api/stories: save a story
+
 
 ## Roadmap
 
@@ -170,7 +173,7 @@ Day 4: Animal Selection Game (5 Points)
 	•	Show images of the selected animals on the page.
 	•	Connect to Backend for Sentence Generation (2 Points)
 	•	Integrate the OpenAI API on the backend to receive selected animal words.
-	•	Display the generated sentence on the frontend.
+	•	Display the story on the frontend.
 
 Day 5: Scoreboard & Polish (5 Points)
 
@@ -193,3 +196,4 @@ This roadmap follows a sprint-based approach with tasks broken down by point est
   
 
    •Third party API: Open AI realted API for generating for animal-related content (e.g., kids friendly sentence from FrontEnd selections, optionally: facts, or images)
+
