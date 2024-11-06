@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node --watch server.js",
     "migrate": "npx knex migrate:latest",
-    "seed": "npx knex seed: run"
+    "seed": "npx knex seed:run"
   },
   "keywords": [
     "letter",
